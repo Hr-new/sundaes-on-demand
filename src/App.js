@@ -6,7 +6,8 @@ import SummaryForm from './pages/summary/SummaryForm';
 function App() {
   return (
     <div className="App">
-      <Options/>
+      <Options optionType='toppings' />
+      <Options optionType='scoops' />
       {/* <SummaryForm /> */}
     </div>
   );
