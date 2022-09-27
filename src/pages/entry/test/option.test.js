@@ -1,7 +1,7 @@
-import { screen, render } from "@testing-library/react";
+import { screen, render, waitFor } from "@testing-library/react";
 import Options from "../Options";
 
-test.skip("Intial rendering of Scoops", async () => {
+test("Intial rendering of Scoops", async () => {
     render(<Options optionType="scoops" />)
 
     // Find images
@@ -13,7 +13,7 @@ test.skip("Intial rendering of Scoops", async () => {
     expect(altText).toEqual(['Chocolate Scoop', 'Vanila Scoop'])
 
 })
-
+// test failed because not find role img with name topping
 test.skip("Initial rendering of Toppings", async () => {
     render(<Options optionType="toppings" />)
     // Find Topping Image using await
