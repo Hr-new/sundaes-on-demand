@@ -1,4 +1,4 @@
-import { screen, render, waitFor } from "@testing-library/react";
+import { screen, render } from "../../../test-utils/testing-library-utils";
 import Options from "../Options";
 
 test("Intial rendering of Scoops", async () => {
