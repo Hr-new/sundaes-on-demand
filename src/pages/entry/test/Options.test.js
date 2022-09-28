@@ -10,18 +10,18 @@ test("Intial rendering of Scoops", async () => {
 
     // Get alternate Text of image and confirm it.
     const altText = ScoopImages.map(scoop => scoop.alt)
-    expect(altText).toEqual(['Chocolate Scoop', 'Vanila Scoop'])
+    expect(altText).toEqual(['Chocolate Scoop', 'Vanilla Scoop'])
 
 })
-// test failed because not find role img with name topping
-test.skip("Initial rendering of Toppings", async () => {
+// test failed because not find role img with name topping find Alert Banner because of error in handler file
+test("Initial rendering of Toppings", async () => {
     render(<Options optionType="toppings" />)
     // Find Topping Image using await
-    const ToppingImages = await screen.findAllByRole('img', { name: /topping/i })
+    const ToppingImages = await screen.findAllByRole('img', { name: /topping$/i })
     expect(ToppingImages).toHaveLength(3)
 
     // Find Alternate text of image and confirm it
     const altToppingText = ToppingImages.map(topping => topping.alt)
-    expect(altToppingText).toEqual(['Cherries', 'M&Ms', 'Hot fudge'])
+    expect(altToppingText).toEqual(['Cherries topping', 'M&Ms topping', 'Hot fudge topping',])
 
 })

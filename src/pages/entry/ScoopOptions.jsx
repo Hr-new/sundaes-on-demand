@@ -10,7 +10,11 @@ const ScoopOptions = ({ name, image, updateItemCount }) => {
 
     return (
         <Col xs={12} s={6} md={4} lg={3} style={{ textAlign: 'center' }}>
-            <img src={`http://localhost:3030/${image}`} alt={`${name} Scoop`} style={{ width: '75%' }} />
+            <img
+                src={`http://localhost:3030/${image}`}
+                alt={`${name} Scoop`}
+                style={{ width: '75%' }}
+            />
             <Form.Group controlId={`${name}-count`} as={Row} style={{ marginTop: '10px' }}>
                 <Form.Label column xs="6" style={{ textAlign: 'right' }}>{name}</Form.Label>
                 <Col xs="5" style={{ textAlign: 'left' }}>
@@ -19,7 +23,6 @@ const ScoopOptions = ({ name, image, updateItemCount }) => {
                     />
                 </Col>
             </Form.Group>
-
         </Col>)
 }
 
