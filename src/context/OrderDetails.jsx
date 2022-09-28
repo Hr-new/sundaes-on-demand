@@ -31,7 +31,7 @@ const OrderDetailsProvider = (props) => {
         scoops: new Map(),
         toppings: new Map()
     })
-    const zeroCurrency=formatCurrency(0)
+    const zeroCurrency = formatCurrency(0)
     const [totals, setTotals] = useState({
         scoops: zeroCurrency,
         toppings: zeroCurrency,
@@ -43,11 +43,19 @@ const OrderDetailsProvider = (props) => {
         const toppingSubTotals = calculateSubTotals('toppings', optionsCounts)
         const grandTotals = scoopSubTotals + toppingSubTotals
         setTotals({
-            scoops: formatCurrency( scoopSubTotals),
+            scoops: formatCurrency(scoopSubTotals),
             toppings: formatCurrency(toppingSubTotals),
-            grandTotals:formatCurrency(grandTotals)
+            grandTotals: formatCurrency(grandTotals)
         })
     }, [optionsCounts])
+
+    // Reset scoop and topping value
+    const resetOrder = () => {
+        setOptionCount({
+            scoops: new Map(),
+            toppings: new Map()
+        })
+    }
 
 
     // Value is combination of getter and setter
@@ -64,7 +72,7 @@ const OrderDetailsProvider = (props) => {
 
         // geter:options count,totals,subtotal
         // setter:update options count
-        return [{ ...optionsCounts, totals }, updateItemCount]
+        return [{ ...optionsCounts, totals }, updateItemCount, resetOrder]
     }, [optionsCounts, totals])
 
     return <OrderDetails.Provider value={value} {...props} />

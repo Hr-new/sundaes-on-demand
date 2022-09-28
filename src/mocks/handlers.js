@@ -17,5 +17,11 @@ export const handlers = [
                 { name: "Hot fudge", imagePath: "/images/hot-fudge.png" }
             ])
         )
+    }),
+    rest.post('http://localhost:3030/order', (req, res, ctx) => {
+        return res(
+            ctx.json({ orderNUmber: Math.floor(Math.random() * 10000000000) })
+        )
+
     })
 ];
