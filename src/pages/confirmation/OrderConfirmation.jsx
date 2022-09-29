@@ -24,7 +24,7 @@ const OrderConfirmation = ({ setOrderPhase }) => {
         // Change OrderPhase
         setOrderPhase('In Progress')
     }
-    
+
     if (orderNumber) {
         return (
             <>
@@ -37,7 +37,7 @@ const OrderConfirmation = ({ setOrderPhase }) => {
 
     }
     else {
-        return <div>Loading.....</div>
+        return <h2>Loading</h2>
     }
 }
 

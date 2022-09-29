@@ -3,7 +3,6 @@ import SummaryForm from "../SummaryForm";
 import userEvent from "@testing-library/user-event"
 
 test("check initial condition", () => {
-
     render(<SummaryForm />)
 
     // find checkbox and checkinitially it is unchecked
@@ -11,28 +10,25 @@ test("check initial condition", () => {
     expect(checkbox).not.toBeChecked()
 
     // Find Button and check that initially it is not enabled 
-    const button = screen.getByRole('button', { name: /Confirm Order/i })
-    expect(button).not.toBeEnabled()
-
-})
+    const confirmButton = screen.getByRole('button', { name: /Confirm Order/i })
+    expect(confirmButton).not.toBeEnabled()
+});
 
 test("Now click checkbox and check button is enable and when unchecked button is disable", () => {
 
     render(<SummaryForm />)
 
     // Find Button and checkbox 
-    const button = screen.getByRole('button', { name: /Confirm Order/i })
+    const confirmButton = screen.getByRole('button', { name: /Confirm Order/i })
     const checkbox = screen.getByRole('checkbox', { name: /terms and conditions/i })
 
     // Now check Checkbox and check button is enable or not
     userEvent.click(checkbox)
-    expect(checkbox).toBeChecked()
-    expect(button).toBeEnabled()
+    expect(confirmButton).toBeEnabled()
 
     // Now uncheck the checkbox and check button is disable now
     userEvent.click(checkbox)
-    expect(checkbox).not.toBeChecked()
-    expect(button).not.toBeEnabled()
+    expect(confirmButton).not.toBeEnabled()
 })
 
 test("Popover on hover of checkbox label", async () => {
@@ -50,6 +46,6 @@ test("Popover on hover of checkbox label", async () => {
 
     // when mouseout popover is disppear
     userEvent.unhover(termsAndConditions)
-    await waitForElementToBeRemoved(()=> screen.queryByText(/no icecream will actually be delivery/i))
+    await waitForElementToBeRemoved(() => screen.queryByText(/no icecream will actually be delivery/i))
     // expect(nullPopover).not.toBeInTheDocument()
 })

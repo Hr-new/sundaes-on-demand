@@ -14,7 +14,7 @@ test('Handle the server Error', async () => {
         })
     );
 
-    render(<OrderEntry />)
+    render(<OrderEntry  setOrderPhase={jest.fn()}/>)
     await waitFor(async () => {
         const alert = await screen.findAllByRole('alert')
         expect(alert).toHaveLength(2)

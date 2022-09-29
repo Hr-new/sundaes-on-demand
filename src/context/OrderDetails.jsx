@@ -12,6 +12,7 @@ const useOrderDetails = (amount) => {
     if (!context) {
         throw new Error('userDetails must be used within OrderDetailsProvider')
     }
+    
     return context
 }
 
